@@ -7,6 +7,9 @@
     <title>Главная - Название вашего сайта</title>
     <meta name="description" content="Краткое описание главной страницы вашего сайта">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
 </head>
 
 <body>
@@ -22,6 +25,7 @@
             </ul>
         </nav>
     </header>
+
     <!-- Уникальное основное содержимое страницы -->
     <main>
         <h1>Добро пожаловать на наш сайт!</h1>
@@ -35,6 +39,8 @@
         <section id="portfolio">
             <h2>Портфолио</h2>
             <p>Примеры наших работ...</p>
+            <a href="#contacts">Связаться с нами</a> <!-- Якорная ссылка внутри страницы -->
+        </section>
         </section>
         <!-- Секция 3 с якорем -->
         <section id="contacts">
@@ -44,6 +50,38 @@
         </section>
     </main>
     <!-- Подвал сайта -->
+
+    <!-- Кнопка открытия модалки -->
+    <button id="openDialog" type="button">Написать нам</button>
+    <!-- Модалка с формой -->
+    <dialog id="contactDialog" aria-labelledby="dialogTitle">
+        <h2 id="dialogTitle">Обратная связь</h2>
+        <form id="contactForm" method="dialog" novalidate>
+            <label for="name">Имя</label>
+            <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+            <label for="phone">Телефон</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="phoneHelp"
+                placeholder="+7 (___) ___-__-__" required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+            <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+            <label for="date">Дата</label>
+            <input id="date" name="date" type="date">
+            <label for="topic">Тема</label>
+            <select id="topic" name="topic" required>
+                <option value="">Выберите тему</option>
+                <option>Вопрос</option>
+                <option>Заказ</option>
+            </select>
+            <label for="message">Сообщение</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <div class="form-actions">
+                <button type="button" id="closeDialog">Закрыть</button>
+                <button type="submit">Отправить</button>
+            </div>
+        </form>
+    </dialog>
+
     <footer>
         <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
         <p>Телефон: +7 (123) 456-78-90</p>
